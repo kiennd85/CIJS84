@@ -1,17 +1,26 @@
-function CustomSelect() {
+const CustomSelect = (props) => {
+  const { title, dataSelect } = props;
+
   return (
     <div>
       <div>
-        <label>Course: </label>
+        <label>{title}</label>
         <select>
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="Javascript">Javascript</option>
+          {dataSelect.map((item, index) => {
+            return (
+              <option
+                key={index}
+                value={item.value}
+              >
+                {item.label}
+              </option>
+            );
+          })}
         </select>
       </div>
       <br />
     </div>
   );
-}
+};
 
 export default CustomSelect;

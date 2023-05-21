@@ -1,6 +1,20 @@
+import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
+import CustomRadio from './CustomRadio';
+import CustomSelect from './CustomSelect';
+import CustomTextarea from './CustomTextarea';
 import './Form.css';
 
+const dataSelect = [
+  { value: 'HTML', label: 'HTML' },
+  { value: 'CSS', label: 'CSS' },
+  { value: 'Javascript', label: 'Javascript' },
+];
+const dataRadio = [
+  { name: 'gender', value: 'Male' },
+  { name: 'gender', value: 'Female' },
+  { name: 'gender', value: 'Other' },
+];
 function Register() {
   return (
     <div class="regisForm">
@@ -24,30 +38,14 @@ function Register() {
           placeholder={'Lastname'}
         />
 
-        <div>
-          <div>
-            <label>Course: </label>
-            <select>
-              <option value="HTML">HTML</option>
-              <option value="CSS">CSS</option>
-              <option value="Javascript">Javascript</option>
-            </select>
-          </div>
-          <br />
-        </div>
-        <div>Gender:</div>
-        <input
-          type="radio"
-          name="gender"
+        <CustomSelect
+          title="Course"
+          dataSelect={dataSelect}
         />
-        <label>Male</label>
-        <input
-          type="radio"
-          name="gender"
+        <CustomRadio
+          title="Gender"
+          dataRadio={dataRadio}
         />
-        <label>Female</label>
-        <br />
-        <br />
 
         <CustomInput
           title={'Phone'}
@@ -55,17 +53,10 @@ function Register() {
           placeholder={'phone no'}
         />
 
-        <div>Current Address:</div>
-        <div>
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="3"
-            placeholder="Current address"
-          ></textarea>
-        </div>
-        <br />
+        <CustomTextarea
+          title={'Current address'}
+          placeholder={'Current address'}
+        />
 
         <CustomInput
           className={'fontbold'}
@@ -87,8 +78,7 @@ function Register() {
           type={'password'}
           placeholder={'Retype Password'}
         />
-
-        <button class="registerBtn">Register</button>
+        <CustomButton nameBtn={'Register'} />
       </form>
     </div>
   );

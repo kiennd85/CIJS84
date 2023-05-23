@@ -6,6 +6,8 @@ const Light = () => {
   const { number, handleNext } = useHook();
   return (
     <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div>Bài 2. Thực hành đổi màu, click 'Next' để đổi màu theo thứ tự</div>
+      <br />
       <button
         onClick={handleNext}
         style={styleButton}

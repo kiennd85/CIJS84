@@ -1,8 +1,8 @@
-import CustomButton from './CustomButton';
-import CustomInput from './CustomInput';
-import CustomRadio from './CustomRadio';
-import CustomSelect from './CustomSelect';
-import CustomTextarea from './CustomTextarea';
+import CustomButton from '../../Components/CustomButton';
+import CustomInput from '../../Components/CustomInput';
+import CustomRadio from '../../Components/CustomRadio';
+import CustomSelect from '../../Components/CustomSelect';
+import CustomTextarea from '../../Components/CustomTextarea';
 import './Form.css';
 
 const dataSelect = [

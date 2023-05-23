@@ -8,6 +8,7 @@ const CustomRadio = (props) => {
         return (
           <div>
             <input
+              //key={index}
               type="radio"
               name={item.name}
               value={item.value}

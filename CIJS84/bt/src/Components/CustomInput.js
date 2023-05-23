@@ -1,5 +1,5 @@
 function CustomInput(props) {
-  const { className = null, title = null, type = null, placeholder = null } = props;
+  const { className = null, title = null, type = null, placeholder = null, value = '', onChange = null } = props;
   return (
     <div>
       <div className={className}>{title}</div>
@@ -7,6 +7,8 @@ function CustomInput(props) {
         <input
           type={type}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
         />
       </div>
       <br />

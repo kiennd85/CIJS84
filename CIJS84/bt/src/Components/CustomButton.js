@@ -1,11 +1,8 @@
-const CustomButton = ({ nameBtn }) => {
-  const handleRegister = (event) => {
-    event.preventDefault();
-  };
+const CustomButton = ({ nameBtn, actSubmit }) => {
   return (
     <button
-      onClick={handleRegister}
       type="submit"
+      onClick={actSubmit}
     >
       {nameBtn}
     </button>

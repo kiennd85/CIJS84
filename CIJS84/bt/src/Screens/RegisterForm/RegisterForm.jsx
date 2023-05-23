@@ -4,6 +4,7 @@ import CustomRadio from '../../Components/CustomRadio';
 import CustomSelect from '../../Components/CustomSelect';
 import CustomTextarea from '../../Components/CustomTextarea';
 import './Form.css';
+import useHookRegister from './useHook';
 
 const dataSelect = [
   { value: 'HTML', label: 'HTML' },
@@ -15,7 +16,10 @@ const dataRadio = [
   { name: 'gender', value: 'Female' },
   { name: 'gender', value: 'Other' },
 ];
+
 function Register() {
+  const { user, handleChange, actSubmit } = useHookRegister();
+
   return (
     <div class="regisForm">
       <div class="title">Student Registeration Form</div>
@@ -24,18 +28,30 @@ function Register() {
           title={'Firstname'}
           type={'text'}
           placeholder={'Firstname'}
+          value={user.Firstname}
+          onChange={(event) => {
+            handleChange(event, 'Firstname');
+          }}
         />
 
         <CustomInput
           title={'Middlename'}
           type={'text'}
           placeholder={'Middlename'}
+          value={user.Middlename}
+          onChange={(event) => {
+            handleChange(event, 'Middlename');
+          }}
         />
 
         <CustomInput
           title={'Lastname'}
           type={'text'}
           placeholder={'Lastname'}
+          value={user.Lastname}
+          onChange={(event) => {
+            handleChange(event, 'Lastname');
+          }}
         />
 
         <CustomSelect
@@ -78,7 +94,10 @@ function Register() {
           type={'password'}
           placeholder={'Retype Password'}
         />
-        <CustomButton nameBtn={'Register'} />
+        <CustomButton
+          nameBtn={'Register'}
+          onClick={actSubmit}
+        />
       </form>
     </div>
   );

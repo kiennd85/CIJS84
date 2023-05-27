@@ -1,8 +1,8 @@
-const CustomButton = ({ nameBtn, actSubmit }) => {
+const CustomButton = ({ nameBtn, handleButton }) => {
   return (
     <button
-      type="submit"
-      onClick={actSubmit}
+      type="button"
+      onClick={handleButton}
     >
       {nameBtn}
     </button>

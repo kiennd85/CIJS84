@@ -3,26 +3,28 @@ import CustomInput from '../../Components/CustomInput';
 import CustomRadio from '../../Components/CustomRadio';
 import CustomSelect from '../../Components/CustomSelect';
 import CustomTextarea from '../../Components/CustomTextarea';
+import ErrorWarning from '../../Components/ErrorWarning';
 import './Form.css';
 import useHookRegister from './useHook';
 
-const dataSelect = [
-  { value: 'HTML', label: 'HTML' },
-  { value: 'CSS', label: 'CSS' },
-  { value: 'Javascript', label: 'Javascript' },
+const dataOption = [
+  { key: 0, name: 'Choose one course' },
+  { key: 1, name: 'HTML' },
+  { key: 2, name: 'CSS' },
+  { key: 3, name: 'Javascript' },
 ];
 const dataRadio = [
-  { name: 'gender', value: 'Male' },
-  { name: 'gender', value: 'Female' },
-  { name: 'gender', value: 'Other' },
+  { key: 0, name: 'gender', value: 'Male' },
+  { key: 1, name: 'gender', value: 'Female' },
+  { key: 2, name: 'gender', value: 'Other' },
 ];
 
 function Register() {
-  const { user, handleChange, actSubmit } = useHookRegister();
+  const { user, error, handleChange, handleButton } = useHookRegister();
 
   return (
-    <div class="regisForm">
-      <div class="title">Student Registeration Form</div>
+    <div className="regisForm">
+      <div className="title">Student Registeration Form</div>
       <form>
         <CustomInput
           title={'Firstname'}
@@ -33,7 +35,7 @@ function Register() {
             handleChange(event, 'Firstname');
           }}
         />
-
+        <ErrorWarning errorContent={error.Firstname} />
         <CustomInput
           title={'Middlename'}
           type={'text'}
@@ -43,7 +45,7 @@ function Register() {
             handleChange(event, 'Middlename');
           }}
         />
-
+        <ErrorWarning errorContent={error.Middlename} />
         <CustomInput
           title={'Lastname'}
           type={'text'}
@@ -53,50 +55,87 @@ function Register() {
             handleChange(event, 'Lastname');
           }}
         />
-
+        <ErrorWarning errorContent={error.Lastname} />
         <CustomSelect
           title="Course"
-          dataSelect={dataSelect}
+          dataOption={dataOption}
+          value={user.Course}
+          onChange={(event) => {
+            handleChange(event, 'Course');
+          }}
         />
+        <ErrorWarning errorContent={error.Course} />
+
         <CustomRadio
           title="Gender"
           dataRadio={dataRadio}
+          value={user.Gender}
+          onChange={(event) => {
+            handleChange(event, 'Gender');
+          }}
         />
 
         <CustomInput
           title={'Phone'}
           type={'number'}
           placeholder={'phone no'}
+          value={user.Phone}
+          onChange={(event) => {
+            handleChange(event, 'Phone');
+          }}
         />
+        <ErrorWarning errorContent={error.Phone} />
 
         <CustomTextarea
           title={'Current address'}
           placeholder={'Current address'}
+          value={user.Address}
+          onChange={(event) => {
+            handleChange(event, 'Address');
+          }}
         />
+        <ErrorWarning errorContent={error.Address} />
 
         <CustomInput
           className={'fontbold'}
           title={'Email'}
           type={'email'}
           placeholder={'Enter email'}
+          value={user.Email}
+          onChange={(event) => {
+            handleChange(event, 'Email');
+          }}
         />
-
+        <ErrorWarning errorContent={error.Email} />
         <CustomInput
           className={'fontbold'}
           title={'Password'}
           type={'password'}
           placeholder={'Enter Password'}
+          value={user.Password}
+          onChange={(event) => {
+            handleChange(event, 'Password');
+          }}
+          errorContent={error.Password}
         />
-
+        <ErrorWarning errorContent={error.Password} />
         <CustomInput
           className={'fontbold'}
           title={'Retype Password'}
           type={'password'}
           placeholder={'Retype Password'}
+          value={user.Repassword}
+          onChange={(event) => {
+            handleChange(event, 'Repassword');
+          }}
+          errorContent={error.Repassword}
         />
+        <ErrorWarning errorContent={error.Repassword} />
         <CustomButton
           nameBtn={'Register'}
-          onClick={actSubmit}
+          handleButton={(event) => {
+            handleButton(event);
+          }}
         />
       </form>
     </div>

@@ -1,5 +1,5 @@
 const CustomTextarea = (props) => {
-  const { title, placeholder } = props;
+  const { title, placeholder, value = '', onChange = null, errorContent = '' } = props;
 
   return (
     <div>
@@ -9,9 +9,10 @@ const CustomTextarea = (props) => {
           cols="30"
           rows="3"
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
         ></textarea>
       </div>
-      <br />
     </div>
   );
 };

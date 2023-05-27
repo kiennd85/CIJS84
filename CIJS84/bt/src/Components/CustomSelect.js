@@ -1,24 +1,26 @@
 const CustomSelect = (props) => {
-  const { title, dataSelect } = props;
+  const { title, dataOption, onChange, value } = props;
 
   return (
     <div>
       <div>
         <label>{title}</label>
-        <select>
-          {dataSelect.map((item, index) => {
+        <select
+          value={value}
+          onChange={onChange}
+        >
+          {dataOption.map((item) => {
             return (
               <option
-                key={index}
-                value={item.value}
+                key={item.key}
+                value={item.key}
               >
-                {item.label}
+                {item.name}
               </option>
             );
           })}
         </select>
       </div>
-      <br />
     </div>
   );
 };

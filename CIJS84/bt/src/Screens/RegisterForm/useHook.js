@@ -34,64 +34,71 @@ const useHookRegister = () => {
     const errorClone = JSON.parse(JSON.stringify(error));
     let result = true;
     //Firstname
-    if (user.Firstname == '') {
-      errorClone.Firstname = 'Không được để trống';
+    if (user.Firstname.trim().length === 0) {
+      errorClone.Firstname = 'Please fill your Firstname';
       result = false;
     } else {
       errorClone.Firstname = '';
     }
 
     //Middlename
-    if (user.Middlename == '') {
-      errorClone.Middlename = 'Không được để trống';
+    if (user.Middlename.trim().length === 0) {
+      errorClone.Middlename = 'Please fill your Middlename';
       result = false;
     } else {
       errorClone.Middlename = '';
     }
 
     //Lastname
-    if (user.Lastname == '') {
-      errorClone.Lastname = 'Không được để trống';
+    if (user.Lastname.trim().length === 0) {
+      errorClone.Lastname = 'Please fill your Lastname';
       result = false;
     } else {
       errorClone.Lastname = '';
     }
 
     //Phone
-    if (user.Phone == '') {
-      errorClone.Phone = 'Không được để trống';
+    if (user.Phone.trim().length === 0) {
+      errorClone.Phone = 'Please fill your phone number';
+    } else if (isNaN(user.Phone)) {
+      errorClone.Phone = 'Invalid phone number';
       result = false;
     } else {
       errorClone.Phone = '';
     }
 
     //Email
-    if (user.Email == '') {
-      errorClone.Email = 'Không được để trống';
+    if (user.Email.trim().length === 0) {
+      errorClone.Email = 'Please fill your email';
+      result = false;
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.Email)) {
+      errorClone.Email = 'Invalid email address';
       result = false;
     } else {
       errorClone.Email = '';
     }
 
     //Password
-    if (user.Password == '') {
-      errorClone.Password = 'Không được để trống';
+    if (user.Password.trim().length === 0) {
+      errorClone.Password = 'Please fill password';
       result = false;
     } else {
       errorClone.Password = '';
     }
 
     //Repassword
-    if (user.Repassword == '') {
-      errorClone.Repassword = 'Không được để trống';
+    if (user.Repassword.trim().length === 0) {
+      errorClone.Repassword = 'Please fill re-password';
       result = false;
+    } else if (user.Password != user.Repassword) {
+      errorClone.Repassword = 'Re-password not match with password';
     } else {
       errorClone.Repassword = '';
     }
 
     //Repassword
-    if (user.Address == '') {
-      errorClone.Address = 'Không được để trống';
+    if (user.Address.trim().length === 0) {
+      errorClone.Address = 'Please fill your address';
       result = false;
     } else {
       errorClone.Address = '';
@@ -99,10 +106,18 @@ const useHookRegister = () => {
 
     //Course
     if (user.Course == '0') {
-      errorClone.Course = 'Chọn một khóa học';
+      errorClone.Course = 'Please select one course';
       result = false;
     } else {
       errorClone.Course = '';
+    }
+
+    //Course
+    if (user.Gender == '') {
+      errorClone.Gender = 'Please select your gender';
+      result = false;
+    } else {
+      errorClone.Gender = '';
     }
     setError(errorClone);
 
@@ -110,12 +125,13 @@ const useHookRegister = () => {
   };
 
   const handleButton = (e) => {
-    console.log(e);
+    //console.log(e);
     let result = validate();
     //let result = true;
 
     if (result) {
       console.log(user);
+      alert('CONGRATULATIONS! You have Successfully Registered ');
     }
   };
 
@@ -139,6 +155,8 @@ const useHookRegister = () => {
       userClone.Address = event.target.value;
     } else if (name == 'Course') {
       userClone.Course = event.target.value;
+    } else if (name == 'Gender') {
+      userClone.Gender = event.target.value;
     }
 
     setUser(userClone);

@@ -74,10 +74,11 @@ function Register() {
             handleChange(event, 'Gender');
           }}
         />
+        <ErrorWarning errorContent={error.Gender} />
 
         <CustomInput
           title={'Phone'}
-          type={'number'}
+          type={'text'}
           placeholder={'phone no'}
           value={user.Phone}
           onChange={(event) => {

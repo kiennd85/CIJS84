@@ -17,10 +17,10 @@ const Test5 = () => {
     return bal;
   }
 
-  const handleClick = (e) => {
-    const bal = get_balance();
+  const handleClick = async (e) => {
+    const bal = await get_balance();
     console.log(bal);
-    //setBalance(bal);
+    setBalance(bal);
   };
 
   return (

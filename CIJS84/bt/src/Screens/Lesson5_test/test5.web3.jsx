@@ -5,7 +5,7 @@ const Test5 = () => {
   const [balance, setBalance] = useState(0);
 
   const testnet = 'https://bsc-dataseed1.binance.org:443';
-  const walletAddress = '0x7C81b1303ADFF4ff5B6Ca6297c318268EeBF1fc7';
+  const walletAddress = '0x7755f284ecbb16c4fd58b947b6eba613ffeed3bb';
 
   const web3 = new Web3(new Web3.providers.HttpProvider(testnet));
 
@@ -17,10 +17,14 @@ const Test5 = () => {
     return bal;
   }
 
+  //   get_balance().then(function (result) {
+  //     setBalance(result);
+  //   });
+
   const handleClick = async (e) => {
-    const bal = await get_balance();
-    console.log(bal);
-    setBalance(bal);
+    get_balance().then((result) => {
+      setBalance(result);
+    });
   };
 
   return (

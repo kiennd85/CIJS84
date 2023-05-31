@@ -7,6 +7,7 @@ import ErrorWarning from '../../Components/ErrorWarning';
 import CustomListUser from '../../Components/CustomListUser';
 import './Form.css';
 import useHookRegister from './useHook';
+import Notice from '../../Components/Notice';
 
 const dataOption = [
   { key: 0, name: 'Choose one course' },
@@ -20,7 +21,7 @@ const dataRadio = [
 ];
 
 function Register() {
-  const { user, error, handleChange, addBtn, listUser, removeBtn, editBtn, btnType, updateBtn, cancelBtn } = useHookRegister();
+  const { user, error, handleChange, addBtn, listUser, removeBtn, editBtn, btnType, updateBtn, cancelBtn, notice } = useHookRegister();
 
   return (
     <>
@@ -84,7 +85,10 @@ function Register() {
               />
             </div>
           )}
-
+          <Notice
+            content={notice.content}
+            show={notice.show}
+          />
           <CustomListUser
             listUser={listUser}
             removeBtn={removeBtn}

@@ -13,8 +13,8 @@ const errorDefault = {
 };
 
 const listUserDefault = [
-  { id: 1, ho: 'Nguyen', ten: 'Van A', gioitinh: 1 },
-  { id: 2, ho: 'Nguyen', ten: 'Thi B', gioitinh: 2 },
+  { id: 1, ho: 'Nguyễn', ten: 'Văn A', gioitinh: 1 },
+  { id: 2, ho: 'Nguyễn', ten: 'Thị B', gioitinh: 2 },
 ];
 
 const btnTypeDefault = {
@@ -22,11 +22,14 @@ const btnTypeDefault = {
   editUser: '',
 };
 
+const noticeDefault = { show: false, content: 'Thông báo' };
+
 const useHookRegister = () => {
   const [user, setUser] = useState(userDefault);
   const [error, setError] = useState(errorDefault);
   const [listUser, setListUser] = useState(listUserDefault);
   const [btnType, setBtnType] = useState(btnTypeDefault);
+  const [notice, setNotice] = useState(noticeDefault);
 
   const validate = () => {
     const errorClone = JSON.parse(JSON.stringify(error));
@@ -70,6 +73,8 @@ const useHookRegister = () => {
 
       setListUser(listUserClone);
       setUser(userDefault);
+      setNotice({ show: true, content: `Đã thêm user: ${user.Firstname} ${user.Lastname}` });
+
       //alert('CONGRATULATIONS! You have Successfully Registered ');
     }
   };
@@ -85,10 +90,12 @@ const useHookRegister = () => {
 
   const removeBtn = (event, Id) => {
     const listUserClone = JSON.parse(JSON.stringify(listUser));
+    const element = listUser.find((item) => Id == item.id);
     const newList = listUserClone.filter((item) => item.id != Id);
     setListUser(newList);
     setUser(userDefault);
     setBtnType(btnTypeDefault);
+    setNotice({ show: true, content: `Đã xóa user: ${element.ho} ${element.ten}` });
   };
 
   const editBtn = (event, Id) => {
@@ -109,12 +116,14 @@ const useHookRegister = () => {
       editUser.gioitinh = user.Gender;
       setUser(userDefault);
       setBtnType(btnTypeDefault);
+      setNotice({ show: true, content: `Đã update user: ${user.Firstname} ${user.Lastname}` });
     }
   };
 
   const cancelBtn = () => {
     setUser(userDefault);
     setBtnType(btnTypeDefault);
+    setNotice(noticeDefault);
   };
 
   const handleChange = (event, name) => {
@@ -129,7 +138,7 @@ const useHookRegister = () => {
 
     setUser(userClone);
   };
-  return { user, error, handleChange, addBtn, listUser, removeBtn, editBtn, btnType, updateBtn, cancelBtn };
+  return { user, error, handleChange, addBtn, listUser, removeBtn, editBtn, btnType, updateBtn, cancelBtn, notice };
 };
 
 export default useHookRegister;

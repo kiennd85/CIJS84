@@ -1,7 +1,6 @@
 const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
   return (
     <div>
-      <br />
       <table className="table table-striped table-bordered table-sm">
         <thead>
           <tr>

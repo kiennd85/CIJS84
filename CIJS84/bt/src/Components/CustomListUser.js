@@ -1,24 +1,53 @@
 const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
   return (
     <div>
-      <table className="table">
+      <br />
+      <table className="table table-striped table-bordered table-sm">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Họ và tên</th>
-            <th scope="col">Giới tính</th>
-            <th scope="col">Thao tác</th>
+            <th
+              scope="col"
+              style={{ textAlign: 'center' }}
+            >
+              #
+            </th>
+            <th
+              scope="col"
+              style={{ textAlign: 'center' }}
+            >
+              Họ và tên
+            </th>
+            <th
+              scope="col"
+              style={{ textAlign: 'center' }}
+            >
+              Giới tính
+            </th>
+            <th
+              scope="col"
+              style={{ textAlign: 'center' }}
+            >
+              Thao tác
+            </th>
           </tr>
         </thead>
         <tbody>
           {listUser.map((item, index) => (
-            <tr key={index}>
-              <th scope="row">{index + 1}</th>
+            <tr
+              key={index}
+              style={{ alignItems: 'center' }}
+            >
+              <th
+                scope="row"
+                style={{ textAlign: 'center' }}
+              >
+                {index + 1}
+              </th>
               <td>
                 {item.ho} {item.ten}
               </td>
-              <td>{item.gioitinh == 1 ? 'Nam' : 'Nữ'}</td>
-              <td style={{ display: 'flex' }}>
+              <td style={{ textAlign: 'center' }}>{item.gioitinh == 1 ? 'Nam' : 'Nữ'}</td>
+              <td style={{ display: 'flex', justifyContent: 'center' }}>
                 <div>
                   <button
                     className="btn btnRmv"

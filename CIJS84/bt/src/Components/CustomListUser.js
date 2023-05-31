@@ -49,7 +49,7 @@ const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
               <td style={{ display: 'flex', justifyContent: 'center' }}>
                 <div>
                   <button
-                    className="btn btnRmv"
+                    className="btn btnRmv subBtn"
                     type="button"
                     onClick={(event) => {
                       removeBtn(event, item.id);
@@ -61,7 +61,7 @@ const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
                 </div>
                 <div>
                   <button
-                    className="btn"
+                    className="btn subBtn"
                     type="button"
                     onClick={(event) => {
                       editBtn(event, item.id);

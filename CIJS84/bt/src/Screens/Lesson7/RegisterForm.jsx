@@ -62,6 +62,7 @@ function Register() {
 
           {btnType.type == 'Add' ? (
             <CustomButton
+              classN={'frameAdd'}
               nameBtn={'Thêm'}
               btnType={(event) => {
                 addBtn(event);

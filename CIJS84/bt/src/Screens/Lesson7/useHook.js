@@ -105,6 +105,7 @@ const useHookRegister = () => {
     console.log(element);
     setUser(editUser);
     setBtnType({ type: 'Update', editUser: element });
+    setNotice({ show: true, content: `Chờ update user: ${element.ho} ${element.ten}` });
   };
 
   const updateBtn = (event, editUser) => {

@@ -20,7 +20,7 @@ const dataRadio = [
 ];
 
 function Register() {
-  const { user, error, handleChange, addBtn, listUser, removeBtn, editBtn, btnType, updateBtn } = useHookRegister();
+  const { user, error, handleChange, addBtn, listUser, removeBtn, editBtn, btnType, updateBtn, cancelBtn } = useHookRegister();
 
   return (
     <>
@@ -67,12 +67,22 @@ function Register() {
               }}
             />
           ) : (
-            <CustomButton
-              nameBtn={'Update'}
-              btnType={(event) => {
-                updateBtn(event, btnType.newUser);
-              }}
-            />
+            <div className="frameBtn">
+              <CustomButton
+                classN={'frameUpdate'}
+                nameBtn={'Cập nhật'}
+                btnType={(event) => {
+                  updateBtn(event, btnType.editUser);
+                }}
+              />
+              <CustomButton
+                classN={'frameUpdate'}
+                nameBtn={'Hủy'}
+                btnType={(event) => {
+                  cancelBtn(event);
+                }}
+              />
+            </div>
           )}
 
           <CustomListUser

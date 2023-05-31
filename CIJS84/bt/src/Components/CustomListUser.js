@@ -15,29 +15,34 @@ const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>
-                {item.ho}
-                {item.ten}
+                {item.ho} {item.ten}
               </td>
               <td>{item.gioitinh == 1 ? 'Nam' : 'Nữ'}</td>
               <td style={{ display: 'flex' }}>
-                <button
-                  type="button"
-                  onClick={(event) => {
-                    removeBtn(event, item.id);
-                  }}
-                >
-                  Xóa
-                  {/* <i className="fa-solid fa-trash"></i> */}
-                </button>
-                <button
-                  type="button"
-                  onClick={(event) => {
-                    editBtn(event, item.id);
-                  }}
-                >
-                  Sửa
-                  {/* <i className="fa-solid fa-pen-to-square"></i> */}
-                </button>
+                <div>
+                  <button
+                    className="btn btnRmv"
+                    type="button"
+                    onClick={(event) => {
+                      removeBtn(event, item.id);
+                    }}
+                  >
+                    Xóa
+                    {/* <i className="fa-solid fa-trash"></i> */}
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={(event) => {
+                      editBtn(event, item.id);
+                    }}
+                  >
+                    Sửa
+                    {/* <i className="fa-solid fa-pen-to-square"></i> */}
+                  </button>
+                </div>
               </td>
             </tr>
           ))}

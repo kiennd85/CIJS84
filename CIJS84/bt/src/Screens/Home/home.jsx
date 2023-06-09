@@ -30,6 +30,14 @@ const Home = () => {
               Count Number
             </Link>
           </div>
+          <div className="box">
+            <Link
+              className="link"
+              to="/SearchForm"
+            >
+              Search Form
+            </Link>
+          </div>
         </div>
       </div>
     </div>

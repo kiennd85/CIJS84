@@ -3,16 +3,16 @@ import Home from '../Home/home';
 import Light from '../Lesson5/Light';
 import Register from '../Lesson7/RegisterForm';
 import CountNumber from '../Lesson5/CountNumber';
+import SearchForm from '../Lesson8_useEffect/SearchForm';
 
 const Navigate = () => {
   return (
     <div>
-      <Home />
       <Routes>
-        {/* <Route
+        <Route
           path="/"
           element={<Home />}
-        /> */}
+        />
 
         <Route
           path="/Light"
@@ -27,9 +27,13 @@ const Navigate = () => {
           element={<CountNumber />}
         />
         <Route
+          path="/SearchForm"
+          element={<SearchForm />}
+        />
+        {/* <Route
           path="*"
           element={<p>khong tim thay</p>}
-        />
+        /> */}
       </Routes>
     </div>
   );

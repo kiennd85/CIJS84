@@ -5,7 +5,7 @@ import CustomListUser from '../../Components/CustomListUser';
 import './SearchForm.css';
 
 const SearchForm = () => {
-  const { listUser, removeBtn, editBtn, dataOption, handleSelect } = useHook();
+  const { listUser, filter, removeBtn, editBtn, dataOption, handleChange } = useHook();
 
   return (
     <div id="Form">
@@ -14,18 +14,24 @@ const SearchForm = () => {
           <div className="select">
             <Select
               dataOption={dataOption}
-              // value={}
+              value={filter.filterGender}
               onChange={(event) => {
-                handleSelect(event);
+                handleChange(event, 'selectChange');
               }}
             ></Select>
           </div>
+
           <div className="search">
-            <Search></Search>
+            <Search
+              value={filter.filterSearch}
+              onChange={(event) => {
+                handleChange(event, 'searchChange');
+              }}
+            ></Search>
           </div>
         </div>
+
         <div>
-          {/* <Table listUser={listUser}></Table> */}
           <CustomListUser
             listUser={listUser}
             removeBtn={removeBtn}

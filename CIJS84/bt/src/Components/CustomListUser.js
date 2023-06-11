@@ -47,7 +47,7 @@ const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
               </td>
               <td style={{ textAlign: 'center' }}>{item.gioitinh == 1 ? 'Nam' : 'Nữ'}</td>
               <td style={{ display: 'flex', justifyContent: 'center' }}>
-                <div>
+                <div title="Xóa">
                   <button
                     className="btn btnRmv subBtn"
                     type="button"
@@ -55,11 +55,10 @@ const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
                       removeBtn(event, item.id);
                     }}
                   >
-                    Xóa
-                    {/* <i className="fa-solid fa-trash"></i> */}
+                    <i className="fa-solid fa-trash fa-lg"></i>
                   </button>
                 </div>
-                <div>
+                <div title="Sửa">
                   <button
                     className="btn subBtn"
                     type="button"
@@ -67,8 +66,7 @@ const CustomListUser = ({ listUser, removeBtn, editBtn }) => {
                       editBtn(event, item.id);
                     }}
                   >
-                    Sửa
-                    {/* <i className="fa-solid fa-pen-to-square"></i> */}
+                    <i className="fa-solid fa-pen-to-square fa-lg "></i>
                   </button>
                 </div>
               </td>

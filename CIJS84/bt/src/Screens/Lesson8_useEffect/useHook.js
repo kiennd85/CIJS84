@@ -61,7 +61,14 @@ const useHook = () => {
     setFilter(filterClone);
   };
 
-  return { listUser, filter, dataOption, handleChange };
+  const removeBtn = () => {
+    console.log('Remove Button');
+  };
+
+  const editBtn = () => {
+    console.log('Edit Button');
+  };
+  return { listUser, filter, removeBtn, editBtn, dataOption, handleChange };
 };
 
 export default useHook;

@@ -5,11 +5,13 @@ import Box from './Box';
 const Lesson9 = () => {
   const [theme, setTheme] = useState('Light');
   return (
-    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
-      <Box></Box>
-      <Box></Box>
-      <Box></Box>
-    </ThemeContext.Provider>
+    <div className="container">
+      <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+      </ThemeContext.Provider>
+    </div>
   );
 };
 

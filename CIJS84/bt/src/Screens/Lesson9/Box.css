@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  border: 1px solid;
+  width: 200px;
+  height: 200px;
+}
+
+.container {
+  display: flex;
+}

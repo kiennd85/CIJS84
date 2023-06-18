@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import ThemeContext from '../../ThemeContext';
 import Box from './Box';
+import SelectTheme from './Select';
 
 const Lesson9 = () => {
   const [theme, setTheme] = useState('Light');
   return (
-    <div className="container">
-      <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+      <div className="container">
         <Box></Box>
         <Box></Box>
         <Box></Box>
-      </ThemeContext.Provider>
-    </div>
+      </div>
+      <div>
+        <SelectTheme></SelectTheme>
+      </div>
+    </ThemeContext.Provider>
   );
 };
 

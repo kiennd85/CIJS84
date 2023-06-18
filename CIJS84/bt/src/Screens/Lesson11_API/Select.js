@@ -1,11 +1,10 @@
-const CustomSelect = (props) => {
-  const { title, dataOption, onChange, value } = props;
-
+const Select = ({ dataOption, value, onChange }) => {
   return (
     <div>
       <div>
-        <label style={{ paddingRight: '10px' }}>{title}</label>
+        <label>Giới tính</label>
         <select
+          style={{ width: '100%', height: '35px', borderRadius: '5px' }}
           value={value}
           onChange={onChange}
         >
@@ -13,9 +12,9 @@ const CustomSelect = (props) => {
             return (
               <option
                 key={item.key}
-                value={item.key}
+                value={item.value}
               >
-                {item.name}
+                {item.label}
               </option>
             );
           })}
@@ -25,4 +24,4 @@ const CustomSelect = (props) => {
   );
 };
 
-export default CustomSelect;
+export default Select;

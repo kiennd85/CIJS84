@@ -2,11 +2,11 @@
   box-sizing: border-box;
 }
 
-.container {
+.containerkn {
   padding: 20px;
 }
 
-.box {
+.boxkn {
   border: 1px solid;
   border-radius: 5px;
   width: 300px;
@@ -25,6 +25,6 @@
   text-align: center;
 }
 
-.box:hover {
+.boxkn:hover {
   background-color: rgb(234, 198, 155);
 }

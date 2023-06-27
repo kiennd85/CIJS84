@@ -4,6 +4,9 @@ import Light from '../Lesson5/Light';
 import Register from '../Lesson7/RegisterForm';
 import CountNumber from '../Lesson5/CountNumber';
 import SearchForm from '../Lesson8_useEffect/SearchForm';
+import App1 from '../Thuchanh/useEffect/prac_useEffect';
+
+import AppBacktotop from '../Thuchanh/useEffect/BacktoTop';
 
 const Navigate = () => {
   return (
@@ -13,7 +16,6 @@ const Navigate = () => {
           path="/"
           element={<Home />}
         />
-
         <Route
           path="/Light"
           element={<Light />}
@@ -29,6 +31,15 @@ const Navigate = () => {
         <Route
           path="/SearchForm"
           element={<SearchForm />}
+        />
+        />
+        <Route
+          path="/ThuchanhUseEffect"
+          element={<App1 />}
+        />
+        <Route
+          path="/ThuchanhBacktoTop"
+          element={<AppBacktotop />}
         />
         {/* <Route
           path="*"
